@@ -51,7 +51,8 @@ export default class App extends Component<Props> {
       return {
         places: prevState.places.filter(place => {
           return place.key !== prevState.selectedPlace.key;
-        })
+        }),
+        selectedPlace: null
       };
     });
   };
