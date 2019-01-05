@@ -12,7 +12,6 @@ import { connect } from "react-redux";
 
 import PlaceInput from "./src/components/PlaceInput/PlaceInput";
 import PlaceList from "./src/components/PlaceList/PlaceList";
-// import placeImage from "./src/assets/adidas.png";
 import PlaceDetail from "./src/components/PlaceDetail/PlaceDetail";
 import {
   addPlace,
@@ -21,9 +20,8 @@ import {
   deselectPlace
 } from "./src/store/actions/index";
 
-type Props = {};
-class App extends Component<Props> {
-  onPressAddedHandler = placeName => {
+class App extends Component {
+  pressAddedHandler = placeName => {
     this.props.onAddPlace(placeName);
   };
 
@@ -32,11 +30,11 @@ class App extends Component<Props> {
   };
 
   placeDeleteHandler = () => {
-    this.props.onDeletePlace;
+    this.props.onDeletePlace();
   };
 
   modalCloseHandler = () => {
-    this.props.onDeselectPlace;
+    this.props.onDeselectPlace();
   };
 
   render() {
@@ -44,14 +42,13 @@ class App extends Component<Props> {
       <SafeAreaView style={styles.safeAreaContainer}>
         <View style={styles.container}>
           <PlaceDetail
-            selectedPlace={this.state.selectedPlace}
+            selectedPlace={this.props.selectedPlace}
             onItemDeleted={this.placeDeleteHandler}
             onModalClosed={this.modalCloseHandler}
           />
-          <PlaceInput onPlaceAdded={this.onPressAddedHandler} />
+          <PlaceInput onPlaceAdded={this.pressAddedHandler} />
           <PlaceList
-            places={this.state.places}
-            // onItemDeleted={this.placeDeleteHandler}
+            places={this.props.places}
             onItemSelected={this.placeSelectedHandler}
           />
         </View>

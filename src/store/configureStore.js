@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from "redux";
 import places from "./reduces/places";
 
-const rootReducer = combinewReducers({
+const rootReducer = combineReducers({
   places: places
 });
 
