@@ -41,7 +41,15 @@ Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
       component: {
-        name: "awesome-places.AuthScreen"
+        name: "awesome-places.AuthScreen",
+        navigationOptions: {
+          topBar: {
+            title: "Movies",
+            textColor: "black",
+            textFontSize: 16,
+            textFontFamily: "HelveticaNeue-Italic"
+          }
+        }
       }
     }
   });

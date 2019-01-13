@@ -18,6 +18,13 @@ const startTabs = () => {
                       name: "awesome-places.SharePlaceScreen",
                       passProps: {
                         text: "This is SharePlaceScreen"
+                      },
+                      options: {
+                        topBar: {
+                          title: {
+                            text: "SharePlaceScreen Title"
+                          }
+                        }
                       }
                     }
                   }
@@ -27,11 +34,6 @@ const startTabs = () => {
                     text: "Tab SharePlaceScreen",
                     icon: sources[0],
                     testID: "FIRST_TAB_BAR_BUTTON"
-                  },
-                  topBar: {
-                    title: {
-                      text: "SharePlaceScreen"
-                    }
                   }
                 }
               }
@@ -44,6 +46,13 @@ const startTabs = () => {
                       name: "awesome-places.FindPlaceScreen",
                       passProps: {
                         text: "This is FindPlaceScreen"
+                      },
+                      options: {
+                        topBar: {
+                          title: {
+                            text: "FindPlaceScreen Title"
+                          }
+                        }
                       }
                     }
                   }
@@ -53,11 +62,6 @@ const startTabs = () => {
                     text: "Tab FindPlaceScreen",
                     icon: sources[1],
                     testID: "SECOND_TAB_BAR_BUTTON"
-                  },
-                  topBar: {
-                    title: {
-                      text: "SharePlaceScreen"
-                    }
                   }
                 }
               }
