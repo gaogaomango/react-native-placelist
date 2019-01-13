@@ -10,7 +10,6 @@ class FindPlaceScreen extends Component {
     const setPlace = this.props.places.find(place => {
       return place.key == key;
     });
-    console.log(this.props);
     Navigation.push(this.props.componentId, {
       component: {
         name: "awesome-places.PlaceDetailScreen",

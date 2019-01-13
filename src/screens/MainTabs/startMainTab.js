@@ -27,6 +27,11 @@ const startTabs = () => {
                     text: "Tab SharePlaceScreen",
                     icon: sources[0],
                     testID: "FIRST_TAB_BAR_BUTTON"
+                  },
+                  topBar: {
+                    title: {
+                      text: "SharePlaceScreen"
+                    }
                   }
                 }
               }
@@ -48,6 +53,11 @@ const startTabs = () => {
                     text: "Tab FindPlaceScreen",
                     icon: sources[1],
                     testID: "SECOND_TAB_BAR_BUTTON"
+                  },
+                  topBar: {
+                    title: {
+                      text: "SharePlaceScreen"
+                    }
                   }
                 }
               }
