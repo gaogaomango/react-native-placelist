@@ -1,30 +1,41 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/Ionicons";
 
-const placeDetail = props => {
-  return (
-    <View style={styles.container}>
-      <View>
-        <Image
-          resizeMode="contain"
-          source={props.selectedPlace.image}
-          style={styles.placeImage}
-        />
-        <Text style={styles.placeName}>{props.selectedPlace.name}</Text>
-      </View>
-      <View style={styles.buttonContainer}>
-        <View style={styles.buttonWrapper}>
-          <TouchableOpacity onPress={props.onItemDeleted}>
-            <View style={styles.deleteButton}>
-              <Icon size={30} name="ios-trash" color="red" />
-            </View>
-          </TouchableOpacity>
+import { connect } from "react-redux";
+import { deletePlace } from "../../store/actions/index";
+
+class placeDetail extends Component {
+  placeDeletedHandler = () => {
+    this.props.onDeletePlace(this.props.selectedPlace.key);
+    Navigation.pop(this.props.componentId);
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View>
+          <Image
+            resizeMode="contain"
+            source={this.props.selectedPlace.image}
+            style={styles.placeImage}
+          />
+          <Text style={styles.placeName}>{this.props.selectedPlace.name}</Text>
+        </View>
+        <View style={styles.buttonContainer}>
+          <View style={styles.buttonWrapper}>
+            <TouchableOpacity onPress={this.placeDeletedHandler}>
+              <View style={styles.deleteButton}>
+                <Icon size={30} name="ios-trash" color="red" />
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -50,4 +61,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export default placeDetail;
+const mapDispatchToPros = dispatch => {
+  return {
+    onDeletePlace: key => {
+      dispatch(deletePlace(key));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToPros
+)(placeDetail);
