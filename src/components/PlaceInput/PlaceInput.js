@@ -10,7 +10,7 @@ class PlaceInput extends Component {
     this.setState({ placeName: event });
   };
 
-  onPressShowPlaceNameHandler = () => {
+  placeSubmitHandler = () => {
     if (this.state.placeName.trim() === "") {
       return;
     }
@@ -22,13 +22,13 @@ class PlaceInput extends Component {
     return (
       <View style={styles.inputContainer}>
         <TextInput
-          onChangeText={placeName => this.placeNameChangeHandler(placeName)}
+          onChangeText={this.placeNameChangeHandler}
           value={this.state.placeName}
           placeholder="An awesome place"
           style={styles.placeInput}
         />
         <Button
-          onPress={this.onPressShowPlaceNameHandler}
+          onPress={this.placeSubmitHandler}
           title="Save"
           color="#841584"
           accessibilityLabel="Show about this Place Name"
