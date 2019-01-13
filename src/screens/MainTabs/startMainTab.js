@@ -25,21 +25,29 @@ const startTabs = () => {
                 options: {
                   bottomTab: {
                     text: "Tab SharePlaceScreen",
-                    icon: sources[0]
+                    icon: sources[0],
+                    testID: "FIRST_TAB_BAR_BUTTON"
                   }
                 }
               }
             },
             {
-              component: {
-                name: "awesome-places.FindPlaceScreen",
-                passProps: {
-                  text: "This is FindPlaceScreen"
-                },
+              stack: {
+                children: [
+                  {
+                    component: {
+                      name: "awesome-places.FindPlaceScreen",
+                      passProps: {
+                        text: "This is FindPlaceScreen"
+                      }
+                    }
+                  }
+                ],
                 options: {
                   bottomTab: {
                     text: "Tab FindPlaceScreen",
-                    icon: sources[1]
+                    icon: sources[1],
+                    testID: "SECOND_TAB_BAR_BUTTON"
                   }
                 }
               }
