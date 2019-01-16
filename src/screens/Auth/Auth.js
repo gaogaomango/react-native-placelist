@@ -4,6 +4,7 @@ import { View, Text, Button, StyleSheet, SafeAreaView } from "react-native";
 import startMainTabs from "../MainTabs/startMainTab";
 import DefaultInput from "../../components/UI/DefaultInput/DefaultInput";
 import HeadingText from "../../components/UI/HeadingText/HeadingText";
+import MainText from "../../components/UI/MainText/MainText";
 
 class AuthScreen extends Component {
   loginHandler = () => {
@@ -14,7 +15,9 @@ class AuthScreen extends Component {
     return (
       <SafeAreaView style={styles.safeAreaContainer}>
         <View style={styles.container}>
-          <HeadingText>Please Login</HeadingText>
+          <MainText>
+            <HeadingText>Please Login</HeadingText>
+          </MainText>
           <Button title="Switch to Login" />
           <View style={styles.inputContainer}>
             <DefaultInput
