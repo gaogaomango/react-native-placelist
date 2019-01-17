@@ -1,12 +1,29 @@
 import React, { Component } from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 class SideDrawer extends Component {
   render() {
     return (
       <SafeAreaView style={styles.safeAreaContainer}>
-        <View>
-          <Text>SideDrawer</Text>
+        <View style={styles.container}>
+          <TouchableOpacity>
+            <View style={styles.drawerItem}>
+              <Icon
+                style={styles.drawerItemIcon}
+                name="ios-log-out"
+                size={30}
+                color="#aaa"
+              />
+              <Text>Sign Out</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     );
@@ -16,14 +33,21 @@ class SideDrawer extends Component {
 const styles = StyleSheet.create({
   safeAreaContainer: {
     flex: 1,
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "white"
   },
   container: {
     flex: 1,
-    padding: 20,
-    justifyContent: "flex-start",
+    paddingTop: 10
+  },
+  drawerItem: {
+    flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    justifyContent: "flex-start",
+    padding: 10,
+    backgroundColor: "#eee"
+  },
+  drawerItemIcon: {
+    marginRight: 10
   }
 });
 
