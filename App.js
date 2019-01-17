@@ -1,93 +1,59 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import { Navigation } from "react-native-navigation";
+import { Provider } from "react-redux";
 
-import React, { Component } from "react";
-import { StyleSheet, View, SafeAreaView } from "react-native";
-import { connect } from "react-redux";
+import AuthScreen from "./src/screens/Auth/Auth";
+import SharePlaceScreen from "./src/screens/SharePlace/SharePlace";
+import FindPlaceScreen from "./src/screens/FindPlace/FindPlace";
+import PlaceDetailScreen from "./src/screens/PlaceDetail/PlaceDetail";
+import SideDrawer from "./src/screens/SideDrawer/SideDrawer";
+import configureStore from "./src/store/configureStore";
 
-import PlaceInput from "./src/components/PlaceInput/PlaceInput";
-import PlaceList from "./src/components/PlaceList/PlaceList";
-import PlaceDetail from "./src/components/PlaceDetail/PlaceDetail";
-import {
-  addPlace,
-  deletePlace,
-  selectPlace,
-  deselectPlace
-} from "./src/store/actions/index";
+const store = configureStore();
 
-class App extends Component {
-  pressAddedHandler = placeName => {
-    this.props.onAddPlace(placeName);
-  };
+Navigation.registerComponentWithRedux(
+  "awesome-places.AuthScreen",
+  () => AuthScreen,
+  Provider,
+  store
+);
 
-  placeSelectedHandler = key => {
-    this.props.onSelectPlace(key);
-  };
+Navigation.registerComponentWithRedux(
+  "awesome-places.SharePlaceScreen",
+  () => SharePlaceScreen,
+  Provider,
+  store
+);
 
-  placeDeleteHandler = () => {
-    this.props.onDeletePlace();
-  };
+Navigation.registerComponentWithRedux(
+  "awesome-places.FindPlaceScreen",
+  () => FindPlaceScreen,
+  Provider,
+  store
+);
 
-  modalCloseHandler = () => {
-    this.props.onDeselectPlace();
-  };
+Navigation.registerComponentWithRedux(
+  "awesome-places.PlaceDetailScreen",
+  () => PlaceDetailScreen,
+  Provider,
+  store
+);
 
-  render() {
-    return (
-      <SafeAreaView style={styles.safeAreaContainer}>
-        <View style={styles.container}>
-          <PlaceDetail
-            selectedPlace={this.props.selectedPlace}
-            onItemDeleted={this.placeDeleteHandler}
-            onModalClosed={this.modalCloseHandler}
-          />
-          <PlaceInput onPlaceAdded={this.pressAddedHandler} />
-          <PlaceList
-            places={this.props.places}
-            onItemSelected={this.placeSelectedHandler}
-          />
-        </View>
-      </SafeAreaView>
-    );
-  }
-}
+Navigation.registerComponent("awesome-places.SideDrawer", () => SideDrawer);
 
-const styles = StyleSheet.create({
-  safeAreaContainer: {
-    flex: 1,
-    backgroundColor: "#F5FCFF"
-  },
-  container: {
-    flex: 1,
-    padding: 20,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  }
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      component: {
+        name: "awesome-places.AuthScreen",
+        navigationOptions: {
+          topBar: {
+            title: "Movies",
+            textColor: "black",
+            textFontSize: 16,
+            textFontFamily: "HelveticaNeue-Italic"
+          }
+        }
+      }
+    }
+  });
 });
-
-const mapStateToProps = state => {
-  return {
-    places: state.places.places,
-    selectedPlace: state.places.selectedPlace
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddPlace: name => dispatch(addPlace(name)),
-    onDeletePlace: () => dispatch(deletePlace()),
-    onSelectPlace: key => dispatch(selectPlace(key)),
-    onDeselectPlace: () => dispatch(deselectPlace())
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
