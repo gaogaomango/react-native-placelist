@@ -43,7 +43,8 @@ const startTabs = () => {
                                 {
                                   id: "sideDrawerToggle",
                                   icon: sources[2],
-                                  title: "Menu"
+                                  title: "Menu",
+                                  color: "orange"
                                 }
                               ]
                             }
@@ -55,7 +56,8 @@ const startTabs = () => {
                       bottomTab: {
                         text: "Tab SharePlaceScreen",
                         icon: sources[0],
-                        testID: "FIRST_TAB_BAR_BUTTON"
+                        testID: "FIRST_TAB_BAR_BUTTON",
+                        selectedIconColor: "orange"
                       }
                     }
                   }
@@ -78,7 +80,8 @@ const startTabs = () => {
                                 {
                                   id: "sideDrawerToggle",
                                   icon: sources[2],
-                                  title: "Menu"
+                                  title: "Menu",
+                                  color: "orange"
                                 }
                               ]
                             }
@@ -90,7 +93,8 @@ const startTabs = () => {
                       bottomTab: {
                         text: "Tab FindPlaceScreen",
                         icon: sources[1],
-                        testID: "SECOND_TAB_BAR_BUTTON"
+                        testID: "SECOND_TAB_BAR_BUTTON",
+                        selectedIconColor: "orange"
                       }
                     }
                   }
