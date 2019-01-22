@@ -107,6 +107,7 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         missingDimensionStrategy "RNN.reactNativeVersion", "reactNative57_5"
+        manifestPlaceholders = [googleApiKey:project.property("google_map_api_key")]
     }
     splits {
         abi {
@@ -142,6 +143,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-maps')
     implementation project(':react-native-vector-icons')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
