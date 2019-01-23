@@ -15,7 +15,8 @@ const reducer = (state = initialState, action) => {
           image: {
             uri:
               "https://nangokuman.com/wp-content/uploads/2018/11/cropped-nangokuman-logo-small-1-1.png"
-          }
+          },
+          location: action.payload.location
         })
       };
     case DELETE_PLACE:
