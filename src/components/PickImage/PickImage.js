@@ -11,7 +11,7 @@ class PickImage extends Component {
           <Image source={placeholderImg} style={styles.previewImage} />
         </View>
         <View style={styles.button}>
-          <Button title="Pick Image" onPress={() => alert("Pick Image")} />
+          <Button title="Pick Image" onPress={this.props.onImagePick} />
         </View>
       </View>
     );

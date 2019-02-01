@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Button, StyleSheet, ScrollView } from "react-native";
+import { View, Button, StyleSheet, ScrollView, CameraRoll } from "react-native";
 import { connect } from "react-redux";
 import { Navigation } from "react-native-navigation";
 
@@ -25,6 +25,16 @@ class SharePlaceScreen extends Component {
       location: {
         value: null,
         valid: false
+      },
+      image: {
+        edges: {
+          node: {
+            image: {
+              type: null,
+              uri: null
+            }
+          }
+        }
       }
     }
   };
@@ -44,6 +54,27 @@ class SharePlaceScreen extends Component {
         }
       });
     }
+  };
+
+  imagePisckedhandler = image => {
+    // this.setState(prevState => {
+    //   return {
+    //     controls: {
+    //       ...prevState.controls,
+    //       image: {
+    //         edges: {
+    //           node: {
+    //             image: {
+    //               type: image.type,
+    //               uri: image.uri
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   };
+    // });
+    console.log(image);
   };
 
   locationPickedHandler = location => {
@@ -90,7 +121,7 @@ class SharePlaceScreen extends Component {
           <MainText>
             <HeadingText>Share a place with us!</HeadingText>
           </MainText>
-          <PickImage />
+          <PickImage onImagePick={this.imagePisckedhandler} />
           <PickLocation onLocationPick={this.locationPickedHandler} />
           <PlaceInput
             placeData={this.state.controls.placeName}
