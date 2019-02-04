@@ -51,6 +51,7 @@
 		95BF8FDBE4844863AFE6C861 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15BF8D3104834ABDAEB3E17F /* Entypo.ttf */; };
 		A2C65419246C4AB69AF6A0EF /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6C1DD127A8417786941AA4 /* libRNVectorIcons.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B54DD5142208120E003D9EC1 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B54DD511220811D5003D9EC1 /* libRNImagePicker.a */; };
 		B5ACDF3021F5B3E800F452D2 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5ACDF2F21F5B3E800F452D2 /* GoogleMapsBase.framework */; };
 		B5ACDF3321F5B3F100F452D2 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5ACDF3121F5B3F100F452D2 /* GoogleMapsCore.framework */; };
 		B5ACDF3421F5B3F100F452D2 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5ACDF3221F5B3F100F452D2 /* GoogleMaps.framework */; };
@@ -354,6 +355,20 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		B54DD4E6220811D5003D9EC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAE6E9814B934A448C4028E4 /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
+		B54DD510220811D5003D9EC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54DD4E2220811D5003D9EC1 /* RNImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
+			remoteInfo = RNImagePicker;
+		};
 		B5FE40BC21E237BA00ECB7E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EF2C206ACD4145A2BE98E637 /* RNVectorIcons.xcodeproj */;
@@ -428,6 +443,7 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AF039F11EC5848B68F2D90B5 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		B272C64645EC47E4B0F982DA /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		B54DD4E2220811D5003D9EC1 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		B5ACDF2F21F5B3E800F452D2 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = "../module/GoogleMaps-2.7.0/Base/Frameworks/GoogleMapsBase.framework"; sourceTree = "<group>"; };
 		B5ACDF3121F5B3F100F452D2 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = "../module/GoogleMaps-2.7.0/Maps/Frameworks/GoogleMapsCore.framework"; sourceTree = "<group>"; };
 		B5ACDF3221F5B3F100F452D2 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../module/GoogleMaps-2.7.0/Maps/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
@@ -471,6 +487,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54DD5142208120E003D9EC1 /* libRNImagePicker.a in Frameworks */,
 				B5ACDF3821F5B4BA00F452D2 /* Accelerate.framework in Frameworks */,
 				B5ACDF5221F5B52600F452D2 /* SystemConfiguration.framework in Frameworks */,
 				B5ACDF5021F5B51E00F452D2 /* QuartzCore.framework in Frameworks */,
@@ -718,6 +735,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B54DD4E2220811D5003D9EC1 /* RNImagePicker.xcodeproj */,
 				B5FE40C221E238F000ECB7E7 /* ReactNativeNavigation.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -788,9 +806,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B54DD4E3220811D5003D9EC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B54DD511220811D5003D9EC1 /* libRNImagePicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B5ACDF2421F5B0CE00F452D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				B54DD4E7220811D5003D9EC1 /* libAirMaps.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1000,6 +1027,10 @@
 				{
 					ProductGroup = B5FE40C321E238F000ECB7E7 /* Products */;
 					ProjectRef = B5FE40C221E238F000ECB7E7 /* ReactNativeNavigation.xcodeproj */;
+				},
+				{
+					ProductGroup = B54DD4E3220811D5003D9EC1 /* Products */;
+					ProjectRef = B54DD4E2220811D5003D9EC1 /* RNImagePicker.xcodeproj */;
 				},
 				{
 					ProductGroup = B5FE40B821E237B900ECB7E7 /* Products */;
@@ -1274,6 +1305,20 @@
 			fileType = archive.ar;
 			path = libRCTBlob.a;
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B54DD4E7220811D5003D9EC1 /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = B54DD4E6220811D5003D9EC1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B54DD511220811D5003D9EC1 /* libRNImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImagePicker.a;
+			remoteRef = B54DD510220811D5003D9EC1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		B5FE40BD21E237BA00ECB7E7 /* libRNVectorIcons.a */ = {
