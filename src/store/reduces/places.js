@@ -13,8 +13,7 @@ const reducer = (state = initialState, action) => {
           key: Math.random().toString(),
           name: action.payload.placeName,
           image: {
-            uri:
-              "https://nangokuman.com/wp-content/uploads/2018/11/cropped-nangokuman-logo-small-1-1.png"
+            uri: action.payload.image.uri
           },
           location: action.payload.location
         })
