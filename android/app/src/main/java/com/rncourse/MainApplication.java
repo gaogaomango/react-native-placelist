@@ -44,7 +44,7 @@ public class MainApplication extends NavigationApplication {
     // No need to add RnnPackage and MainReactPackage
     return Arrays.<ReactPackage>asList(
         // eg. new VectorIconsPackage()
-        new VectorIconsPackage(), new MapsPackage(), new ImagePickerPackage());
+        new VectorIconsPackage(), new MapsPackage(), new ImagePickerPackage(), new ReactNativeConfigPackage());
   }
 
   // @Override
@@ -63,6 +63,7 @@ public class MainApplication extends NavigationApplication {
   // protected List<ReactPackage> getPackages() {
   // return Arrays.<ReactPackage>asList(
   // new MainReactPackage(),
+  // new ReactNativeConfigPackage(),
   // new ImagePickerPackage(),
   // new MapsPackage(),
   // new VectorIconsPackage()
