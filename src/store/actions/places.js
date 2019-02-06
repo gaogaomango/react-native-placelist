@@ -1,19 +1,38 @@
 import { ADD_PLACE, DELETE_PLACE } from "./actionTypes";
 
+import firebase from "../../../firebase";
+
 export const addPlace = (placeName, location, image) => {
   return dispatch => {
     const placeData = {
       name: placeName,
       location: location
     };
-    fetch("https://reactnativeplaceshareapp.firebaseio.com/places.json", {
-      method: "POST",
-      body: JSON.stringify(placeData)
-    })
-      .catch(err => console.elog(err))
-      .then(res => res.json())
-      .then(parsedRes => {
-        console.log(parsedRes);
+
+    const UUID = require("uuid-v4");
+    const uuid = UUID();
+    const storageRef = firebase.storage().ref("places");
+
+    storageRef
+      .child(uuid + ".jpg")
+      .putString(image.base64, "base64", {
+        contentType: "image/jpeg"
+      })
+      .then(snapshot => {
+        if (snapshot.state == "success") {
+          storageRef
+            .child(uuid + ".jpg")
+            .getDownloadURL()
+            .then(url => {
+              console.log("getDownloadURL(): " + url);
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
+      })
+      .catch(error => {
+        console.log(error);
       });
   };
   // {
