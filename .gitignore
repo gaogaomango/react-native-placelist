@@ -371,6 +371,6 @@ Pods/
 
 # firebase
 .firebaserc
-
+awesome-palces.json
 # End of https://www.gitignore.io/api/vim,git,linux,macos,reactnative
 
