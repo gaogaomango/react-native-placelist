@@ -1,17 +1,14 @@
 import { ADD_PLACE, DELETE_PLACE } from "./actionTypes";
-
+import { uiStartLoading, uiStopLoading } from "./index";
 import firebase from "../../../firebase";
 
 export const addPlace = (placeName, location, image) => {
   return dispatch => {
-    const placeData = {
-      name: placeName,
-      location: location
-    };
-
+    dispatch(uiStartLoading);
     const UUID = require("uuid-v4");
     const uuid = UUID();
     const storageRef = firebase.storage().ref("places");
+    const databasePlaceRef = firebase.database().ref("places");
 
     storageRef
       .child(uuid + ".jpg")
@@ -25,14 +22,33 @@ export const addPlace = (placeName, location, image) => {
             .getDownloadURL()
             .then(url => {
               console.log("getDownloadURL(): " + url);
+              const placeData = {
+                name: placeName,
+                location: location,
+                image: url
+              };
+
+              databasePlaceRef
+                .push()
+                .set(placeData)
+                .then(parsedRes => {
+                  console.log(parsedRes);
+                  dispatch(uiStopLoading);
+                })
+                .catch(err => {
+                  console.error(err);
+                  dispatch(uiStopLoading);
+                });
             })
-            .catch(error => {
-              console.log(error);
+            .catch(err => {
+              console.log(err);
+              dispatch(uiStopLoading);
             });
         }
       })
-      .catch(error => {
-        console.log(error);
+      .catch(err => {
+        console.log(err);
+        dispatch(uiStopLoading);
       });
   };
   // {
